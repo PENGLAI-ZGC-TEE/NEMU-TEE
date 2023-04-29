@@ -1,0 +1,9 @@
+[submodule "riscv-linux"]
+	path = riscv-linux
+	url = https://github.com/PengXuanyao/openEuler-for-nemu.git
+[submodule "opensbi"]
+	path = opensbi
+	url = https://github.com/PengXuanyao/opensbi-for-nemu.git
+[submodule "riscv-rootfs"]
+	path = riscv-rootfs
+	url = https://github.com/PengXuanyao/rootfs-for-nemu
