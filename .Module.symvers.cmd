@@ -1,0 +1,1 @@
+cmd_/nfs/home/pengxuanyao/Workspace/NEMU-TEE/Module.symvers := sed 's/ko$$/o/' /nfs/home/pengxuanyao/Workspace/NEMU-TEE/modules.order | scripts/mod/modpost     -o /nfs/home/pengxuanyao/Workspace/NEMU-TEE/Module.symvers -e    -T -
