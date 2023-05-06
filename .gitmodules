@@ -7,6 +7,7 @@
 [submodule "riscv-rootfs"]
 	path = riscv-rootfs
 	url = https://github.com/ICT-TEE/riscv-rootfs.git
+	branch = penglai-rootfs
 [submodule "NEMU"]
 	path = NEMU
 	url = https://github.com/ICT-TEE/NEMU.git
