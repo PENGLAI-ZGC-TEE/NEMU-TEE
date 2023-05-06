@@ -1,12 +1,12 @@
 [submodule "riscv-linux"]
 	path = riscv-linux
-	url = https://github.com/PengXuanyao/openEuler-for-nemu.git
+	url = https://github.com/ICT-TEE/riscv-linux.git
 [submodule "opensbi"]
 	path = opensbi
-	url = https://github.com/PengXuanyao/opensbi-for-nemu.git
+	url = https://github.com/ICT-TEE/opensbi.git
 [submodule "riscv-rootfs"]
 	path = riscv-rootfs
-	url = https://github.com/PengXuanyao/rootfs-for-nemu
+	url = https://github.com/ICT-TEE/riscv-rootfs.git
 [submodule "NEMU"]
 	path = NEMU
-	url = https://github.com/PengXuanyao/NEMU-with-Penglai.git
+	url = https://github.com/ICT-TEE/NEMU.git
