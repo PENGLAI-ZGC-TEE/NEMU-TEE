@@ -41,17 +41,16 @@ linux:
 dts:
 	cd $(SBI_HOME)/dts; dtc -O dtb -o xiangshan.dtb $(DTS_NAME)
 
-rootfs: 
+init: 
+	git submodule update --init --recursive
+	cd NEMU; make riscv64-tee_defconfig; make -j8
 	$(MAKE) -C $(RISCV_ROOTFS_HOME)/apps/busybox
 	$(MAKE) -C $(RISCV_ROOTFS_HOME)/apps/penglai-sdk
 	$(MAKE) -C $(RISCV_ROOTFS_HOME)/apps/penglai-driver
-
-init: 
-	git submodule update --init --recursive
-	cd NEMU; cp defconfig .config; make menuconfig; make -j8
 	$(MAKE) -C $(LINUX_HOME) ARCH=$(ARCH) CROSS_COMPILE=$(CROSS_COMPILE) fpga_defconfig
 	$(MAKE) -C $(LINUX_HOME) ARCH=$(ARCH) CROSS_COMPILE=$(CROSS_COMPILE) vmlinux
 	$(MAKE) -C $(RISCV_ROOTFS_HOME)/apps/penglai-driver
+	@echo "initialization success"
 
 run:
 	$(NEMU_BINARY) $(IMG) 
