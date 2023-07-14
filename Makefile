@@ -11,6 +11,7 @@ FW_FDT_PATH=$(DTS_HOME)/xiangshan.dtb
 IMG=$(SBI_HOME)/build/platform/generic/firmware/fw_payload.bin
 PLATFORM=generic
 FW_PAYLOAD_PATH=$(LINUX_HOME)/vmlinux.bin
+# FW_PAYLOAD_PATH=
 
 # LINUX_CONFIG
 LINUX_CONFIG=fpga_defconfig
@@ -52,6 +53,10 @@ init:
 	$(MAKE) -C $(RISCV_ROOTFS_HOME)/apps/penglai-driver
 	@echo "initialization success"
 
+penglai-sdk:
+	$(MAKE) -C $(RISCV_ROOTFS_HOME)/apps/penglai-sdk
+	$(MAKE) -C $(RISCV_ROOTFS_HOME)/apps/penglai-driver
+	
 run:
 	$(NEMU_BINARY) $(IMG) 
 
