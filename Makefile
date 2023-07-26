@@ -60,6 +60,13 @@ penglai-sdk:
 run:
 	$(NEMU_BINARY) $(IMG) 
 
+nemu:
+	$(MAKE) -C $(NEMU_HOME) riscv64-tee_defconfig
+	$(MAKE) -C $(NEMU_HOME) -j32
+
+nemu-menu:
+	$(MAKE) -C $(NEMU_HOME) menuconfig
+
 clean:
 	$(MAKE) -C $(SBI_HOME) clean
 	$(MAKE) -C $(LINUX_HOME) clean
