@@ -17,7 +17,6 @@ LINUX_CONFIG=fpga_defconfig
 
 # arch and cross compile infomation
 export ARCH=riscv
-export ISA=riscv64
 export CROSS_COMPILE=riscv64-unknown-linux-gnu-
 export CROSS_COMPILE_OBJCOPY=$(CROSS_COMPILE)objcopy
 export RISCV=/nfs/home/share/riscv/
@@ -46,7 +45,6 @@ init:
 	cd NEMU; make riscv64-tee_defconfig; make -j8
 	$(MAKE) -C $(RISCV_ROOTFS_HOME)/apps/busybox
 	$(MAKE) -C $(RISCV_ROOTFS_HOME)/apps/penglai-sdk
-	$(MAKE) -C $(RISCV_ROOTFS_HOME)/apps/penglai-driver
 	$(MAKE) -C $(LINUX_HOME) ARCH=$(ARCH) CROSS_COMPILE=$(CROSS_COMPILE) fpga_defconfig
 	$(MAKE) -C $(LINUX_HOME) ARCH=$(ARCH) CROSS_COMPILE=$(CROSS_COMPILE) vmlinux
 	$(MAKE) -C $(RISCV_ROOTFS_HOME)/apps/penglai-driver
