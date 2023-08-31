@@ -1,6 +1,7 @@
 # below homes is submodules of this repo
 export SBI_HOME=$(shell pwd)/opensbi
-export LINUX_HOME=$(shell pwd)/riscv-linux
+# export LINUX_HOME=$(shell pwd)/riscv-linux
+export $(shell pwd)/debian_linux_kernel
 export RISCV_ROOTFS_HOME=$(shell pwd)/riscv-rootfs
 export NEMU_HOME=$(shell pwd)/NEMU
 
@@ -14,7 +15,8 @@ FW_PAYLOAD_PATH=$(LINUX_HOME)/vmlinux.bin
 # FW_PAYLOAD_PATH=
 
 # LINUX_CONFIG
-LINUX_CONFIG=fpga_defconfig
+# LINUX_CONFIG=fpga_defconfig
+LINUX_CONFIG=nanhu_fpga_defconfig
 
 # arch and cross compile infomation
 export ARCH=riscv
@@ -61,7 +63,10 @@ run:
 	$(NEMU_BINARY) $(IMG) 
 
 nemu:
-	$(MAKE) -C $(NEMU_HOME) riscv64-tee_defconfig
+	$(MAKE) -C $(NEMU_HOME) -j32
+
+nemu-pmptable:
+	$(MAKE) -C $(NEMU_HOME) riscv64-tee-pmptable_defconfig
 	$(MAKE) -C $(NEMU_HOME) -j32
 
 nemu-menu:

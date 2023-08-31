@@ -11,3 +11,6 @@
 [submodule "NEMU"]
 	path = NEMU
 	url = https://github.com/ICT-TEE/NEMU.git
+[submodule "debian-linux-kernel"]
+	path = debian-linux-kernel
+	url = git@github.com:ICT-TEE/debian-linux-kernel.git
